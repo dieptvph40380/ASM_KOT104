@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -74,10 +75,11 @@ fun test(){
                         contentDescription = "",
                         modifier = Modifier.size(80.dp) // Kích thước của ảnh nhỏ
                     )
+                    Spacer(modifier = Modifier.height(25.dp))
                     Image(
-                        painter = painterResource(id = R.drawable.icon),
+                        painter = painterResource(id = R.drawable.checkmark),
                         contentDescription = "",
-                        modifier = Modifier.size(80.dp) // Kích thước của ảnh nhỏ
+                        modifier = Modifier.size(50.dp).padding(top = 10.dp) // Kích thước của ảnh nhỏ
                     )
                 }
 

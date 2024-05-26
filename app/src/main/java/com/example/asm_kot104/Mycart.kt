@@ -59,13 +59,16 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.contentColorFor
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.graphics.Color
 
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
@@ -74,11 +77,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.asm_kot104.ui.theme.ASM_KOT104Theme
 
 class Mycart : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {  }
+        setContent {
+            CartScreen()
+        }
     }
 }
 @Composable
@@ -140,7 +146,7 @@ fun PromoCodeContainer() {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
-        TextField(
+        OutlinedTextField(
             value = rememberSaveable { mutableStateOf("") }.value,
             onValueChange = {},
             modifier = Modifier
@@ -161,16 +167,11 @@ fun PromoCodeContainer() {
                 .align(Alignment.CenterVertically),
             shape = RoundedCornerShape(10.dp), // Set the shape to be square
             colors = ButtonDefaults.buttonColors(
-
+                Color.Black,
+                contentColor = Color.White
             )
         ) {
-            Icon(
-                modifier = Modifier
-                    .size(100.dp),
-                imageVector = Icons.Default.KeyboardArrowRight,
-                contentDescription = "Minus",
-
-                )
+            Text(">", fontSize = 20.sp)
         }
     }
 }
@@ -197,10 +198,12 @@ fun PromoCodeCheckOut(
         onClick = {},
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(16.dp)
+            .height(50.dp),
         shape = RoundedCornerShape(10.dp),
         colors = ButtonDefaults.buttonColors(
-
+            Color.Black,
+            contentColor = Color.White
         )
     ) {
         Text("Check out")
@@ -239,10 +242,13 @@ fun CartItem(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Start) {
                 IconButton(onClick = onPlusClick) {
+
                     Icon(imageVector = Icons.Default.Add, contentDescription = "Plus")
                 }
                 Text("1")
                 IconButton(onClick = onMinusClick) {
+                    contentColorFor(backgroundColor = Color.Black)
+
                     Icon(imageVector = Icons.Default.Delete, contentDescription = "Minus")
 
                 }
@@ -260,6 +266,22 @@ private fun getImageResource(imageName: String): Int {
         "img_1.jpg" -> R.drawable.icon
         "img_2.jpg" -> R.drawable.icon
         "img_3.jpg" -> R.drawable.icon
-        else -> R.drawable.bookmark
+        else -> R.drawable.icon
     }
 }
+
+//@Preview(showBackground = true)
+//@Composable
+//fun layoutcheck() {
+//    ASM_KOT104Theme {
+//        Column {
+//            Column(modifier = Modifier.weight(1f) ) {
+//                CartScreen()
+//            }
+//
+//            PromoCodeContainer()
+//            PromoCodeContai()
+//            PromoCodeCheckOut()
+//        }
+//    }
+//}

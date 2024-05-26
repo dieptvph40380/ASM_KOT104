@@ -69,5 +69,12 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation ("com.github.skydoves:landscapist-glide:1.5.2")
+    // or
+    implementation ("com.github.skydoves:landscapist-coil:1.5.2")
+    // or
+    implementation ("com.github.skydoves:landscapist-fresco:1.5.2")
+    implementation ("androidx.navigation:navigation-compose:2.7.7")
+    implementation ("androidx.navigation:navigation-compose:2.7.6")
 
 }

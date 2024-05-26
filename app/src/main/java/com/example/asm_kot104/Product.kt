@@ -22,6 +22,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -57,13 +58,15 @@ fun ProductScreen() {
 
                 // Hình ảnh sản phẩm
                 Image(
-                    painter = painterResource(id = R.drawable.icon),
+                    painter = painterResource(id = R.drawable.mask_group),
                     contentDescription = "Hình ảnh sản phẩm",
                     modifier = Modifier
+                        .clip(RoundedCornerShape(bottomStart = 60.dp))
                         .height(350.dp)
                         .width(300.dp)
-                        .align(Alignment.TopEnd)
-                        .clip(RoundedCornerShape(16.dp))
+                        .align(Alignment.TopEnd),
+                    contentScale = ContentScale.Crop
+
                 )
                 // Nút trở về
                 Column {
@@ -75,9 +78,9 @@ fun ProductScreen() {
                             .background(Color.White)
                     ) {
                         Icon(
-                            painter = painterResource(id = R.drawable.icon),
+                            painter = painterResource(id = R.drawable.back),
                             contentDescription = "Trở về",
-
+                            modifier = Modifier.size(100.dp)
                             )
                     }
                     CircleButtonColumn()
@@ -151,11 +154,12 @@ fun ProductScreen() {
             // Đánh giá sản phẩm
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
-                    painter = painterResource(id = R.drawable.icon),
+                    painter = painterResource(id = R.drawable.start),
                     contentDescription = "Sao",
-                    tint = Color.Yellow
+                    tint = Color.Yellow,
+                    modifier = Modifier.size(35.dp)
                 )
-                Text(text = "4.5", fontSize = 16.sp)
+                Text(text = "4.5", fontSize = 16.sp ,modifier = Modifier.padding(start =20.dp))
                 Text(text = "(50 đánh giá)", fontSize = 16.sp, color = Color.Gray)
             }
 
@@ -261,10 +265,10 @@ fun CircleButtonColumn() {
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun layoutcheck() {
-    ASM_KOT104Theme {
-        ProductScreen()
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun layoutcheck() {
+//    ASM_KOT104Theme {
+//        ProductScreen()
+//    }
+//}

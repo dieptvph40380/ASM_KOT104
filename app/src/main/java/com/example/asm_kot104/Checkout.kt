@@ -388,10 +388,12 @@ fun PromoCodeCheckOut7(
         onClick = {},
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(16.dp)
+            .height(50.dp),
         shape = RoundedCornerShape(10.dp),
         colors = ButtonDefaults.buttonColors(
-
+            Color.Black,
+            contentColor = Color.White
         )
     ) {
         Text("SUBMIT ORDER")
@@ -460,10 +462,24 @@ private fun getImageResource(imageName: String): Int {
         else -> R.drawable.bookmark
     }
 }
-//@Preview(showBackground = true)
-//@Composable
-//fun layoutcheck() {
-//    ASM_KOT104Theme {
-//        CircleButtonColumn()
-//    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun layoutcheck() {
+    ASM_KOT104Theme {
+        Column {
+            Column(modifier = Modifier.weight(1f) ) {
+                CartScreen6()
+            }
+            CartScreen4()
+            ContactCard()
+            CartScreen5()
+            PromoCodeContainer5()
+            CartScreen7()
+
+
+            PromoCodeContainer7()
+            BoGocContainer()
+            PromoCodeCheckOut7()
+        }
+    }
+}
